@@ -6,4 +6,4 @@
   <img src="https://discordbots.org/api/widget/status/405635474124832768.svg" />
 </a>
 
-<p>\nMy discord bot I'm hosting on android</p>
+<p>My discord bot I'm hosting on android</p>
