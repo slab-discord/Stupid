@@ -7,3 +7,4 @@
 </a>
 
 <p>My discord bot I'm hosting on android</p>
+<a href= https://discordapp.com/api/oauth2/authorize?client_id=405635474124832768&permissions=8&scope=bot>Invite The Bot</a>
