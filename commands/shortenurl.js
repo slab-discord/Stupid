@@ -5,7 +5,7 @@ const shorten = require('isgd');
  
 
 exports.run = (bot, message, args, tools) => {
-if (!args[0]) return message.channel.send('Please do ;shorten <URL> [title]')
+if (!args[0]) return message.channel.send('Please do ;shortenurl <URL> [title]')
 
   if (!args[1]) {
 
