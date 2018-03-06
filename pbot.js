@@ -5,7 +5,7 @@ const bot = new Discord.Client();
 const pfix = ';';
 
 bot.on('ready', () => {
-bot.user.setActivity(';help | ' + message.guilds.size + ' servers | ;invite');
+bot.user.setActivity(';help | ' + bot.guilds.size + ' servers | ;invite');
 });
 
 bot.on('message', message => {
