@@ -25,4 +25,4 @@ console.log(e.message);
 }
 });
 
-bot.login(settings.token)
+bot.login(proces.env.token)
