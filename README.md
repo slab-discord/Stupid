@@ -1,8 +1,4 @@
 # Picklebot
-
-<b> <u> I am no longer working on Pickle Bot. Sorry guys </u> </b> <br />
-
-
 <a href="https://discordbots.org/bot/405635474124832768">
   <img src="https://discordbots.org/api/widget/upvotes/405635474124832768.svg" />
 </a>
