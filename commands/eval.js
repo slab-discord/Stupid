@@ -3,11 +3,11 @@ const settings = require('./settings.json')
 
 exports.run = (bot, message, args, tools) => {
 
-if(message.author.id !== settings.myid) { 
+if(!settings.ids.includes(message.author.id)) { 
 let no = new discord.RichEmbed()
-.setTitle('Owner Only.')
+.setTitle('Bot Admins Only.')
 .setColor([255,0,0])
-.setDescription('The eval command is owner only.');
+.setDescription('The eval command is bot admins only.');
 message.channel.send({embed: no});
 return;
 }
