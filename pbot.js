@@ -1,17 +1,35 @@
 const Discord = require('discord.js');
 const settings = require('./settings.json');
 const stuff = require('./stuff.json');
+const snek = require("snekfetch");
 const bot = new Discord.Client();
 const pfix = ';';
 
 bot.on('ready', () => {
+console.log('[Pickle] Picklebot running on version ' + settings.version);
 bot.user.setActivity(';help | ' + bot.guilds.size + ' servers | ;invite');
+snek.post('https://discordbots.org/api/bots/' + bot.user.id +'/stats') 
+    .set("Authorization", 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQwNTYzNTQ3NDEyNDgzMjc2OCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTE4ODM2MTg0fQ.FU2idw2nyCq6-xI7aJlSWk8fVCFYWY6AAjmuWWmxyW4')
+    .send({server_count: bot.guilds.size})
+    .then(() => console.log('Updated discordbots.org server count: ' + bot.guilds.size))
+    .catch(e => console.log('Error posting to discordbots.org: ' + e.message));
 });
-
+bot.on('disconnect', function(erMsg, code) { 
+console.log('----- Bot disconnected from Discord with code', code, 'for reason:', erMsg, '-----'); 
+bot.connect(); 
+});
+process.on('unhandledRejection', err => {
+console.log(`Uncaught Promise Error: \n${err.stack}`);
+});
+process.on('uncaughtException', err => {
+let errorMsg = err.stack.replace(new RegExp(`${__dirname}/`, 'g'), './');
+console.log(`Uncaught Exception: \n${errorMsg}`);
+});
 bot.on('message', message => {
 let msg = message.content.toUpperCase();
 let user = message.author;
 let args = message.content.slice(pfix.length).trim().split(' ');
+let cmdarg = message.content.slice(1);
 let cmd = args.shift().toLowerCase();
 
 if(!msg.startsWith(pfix)) return;
@@ -21,8 +39,13 @@ try{
 let commandFile = require(`./commands/${cmd}.js`);
 commandFile.run(bot, message, args);
 } catch(e) {
+let err = new Discord.RichEmbed()
+.setTitle('Error')
+.setDescription('```' + cmdarg + ' is not a command, you can request it tho with ;request```')
+.setColor([255, 0, 0]);
+message.channel.send({embed: err});
 console.log(e.message);
 }
 });
 
-bot.login(proces.env.token)
+bot.login(settings.token)
