@@ -9,8 +9,7 @@ bot.on('ready', () => {
 console.log('[Pickle] Picklebot running on version ' + settings.version);
 bot.user.setActivity(';help | ' + bot.guilds.size + ' servers | ;invite');
 snek.post('https://discordbots.org/api/bots/' + bot.user.id +'/stats') 
-    .set("Authorization", 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjQwNTYzNTQ3NDEyNDgzMjc2OCIsImJvdCI6dHJ1ZSwiaWF0IjoxNTE4ODM2MTg0fQ.FU2idw2nyCq6-xI7aJlSWk8fVCFYWY6AAjmuWWmxyW4')
-    .send({server_count: bot.guilds.size})
+    .set("Authorization", "no u")
     .then(() => console.log('Updated discordbots.org server count: ' + bot.guilds.size))
     .catch(e => console.log('Error posting to discordbots.org: ' + e.message));
 });
