@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 const settings = require('./settings.json');
-const stuff = require('./stuff.json');
 const snek = require("snekfetch");
 const bot = new Discord.Client();
 const pfix = ';';
@@ -8,10 +7,6 @@ const pfix = ';';
 bot.on('ready', () => {
 console.log('[Pickle] Picklebot running on version ' + settings.version);
 bot.user.setActivity(';help | ' + bot.guilds.size + ' servers | ;invite');
-snek.post('https://discordbots.org/api/bots/' + bot.user.id +'/stats') 
-    .set("Authorization", "no u")
-    .then(() => console.log('Updated discordbots.org server count: ' + bot.guilds.size))
-    .catch(e => console.log('Error posting to discordbots.org: ' + e.message));
 });
 bot.on('disconnect', function(erMsg, code) { 
 console.log('----- Bot disconnected from Discord with code', code, 'for reason:', erMsg, '-----'); 
@@ -47,4 +42,4 @@ console.log(e.message);
 }
 });
 
-bot.login(settings.token)
+bot.login(process.env.TOKEN)
