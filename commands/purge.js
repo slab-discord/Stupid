@@ -1,12 +1,32 @@
+let Discord = require('discord.js');
+let settings = require('./settings.json');
+
 exports.run = (bot, message, args, tools) => {
-async function purge() {
-if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('You do not have permission.');
-message.delete();
-if(isNaN(args[0])) return message.channel.send('Please specify a number.');
-if(args[0] == '1') return message.channel.send('Please specify a number greator then 1 but less then 100');
-if(args[0] < '100') return message.channel.send('Please specify a number greator then 1 but less then 101');
-const fetched = await message.channel.fetchMessages({limit: args[0]});
-message.channel.bulkDelete(fetched) 
+try {
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(new Discord.RichEmbed()
+.setColor([255, 0, 0])
+.setTitle('No perms')
+.setDescription('You do not have perms to purge messages.'));
+if(isNaN(args[0])) return message.channel.send(new Discord.RichEmbed()
+.setColor([255, 0, 0])
+.setTitle('Error')
+.setDescription('You need to provide a number.(2, 3, 4...)'));
+if(args[0] > '100') return message.channel.send(new Discord.RichEmbed()
+.setColor([255, 0, 0])
+.setTitle('Error')
+.setDescription('Please provode a number between 2 and 100.'));
+if(args[0] == '1') return message.channel.send(new Discord.RichEmbed()
+.setColor([255, 0, 0])
+.setTitle('Error')
+.setDescription('Please provode a number between 2 and 100.'));
+message.channel.bulkDelete(args[0]).then(message.channel.send(new Discord.RichEmbed()
+.setColor('#008000')
+.setTitle('Purged')
+.setDescription('Sucsessfully purged ' + args[0] + ' messages.'))).then(message.delete({ timeout: 5 }));
+} catch (e) {
+message.channel.send(new Discord.RichEmbed()
+.setColor([255, 0, 0])
+.setTitle('No perms')
+.setDescription('I do not have perms to purge messages.'));
 }
-purge();
 }
