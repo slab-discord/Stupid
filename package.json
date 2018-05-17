@@ -27,6 +27,6 @@
   "homepage": "https://retardedwave.github.io/",
   "dependencies": {
     "discord.js": "^11.3.2",
-    "snekfetch": "4.0.0",
-  },
+    "snekfetch": "4.0.0"
+  }
 }
