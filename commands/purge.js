@@ -1,5 +1,5 @@
 let Discord = require('discord.js');
-let settings = require('./settings.json');
+let settings = require('./jsons/settings.json');
 
 exports.run = (bot, message, args, tools) => {
 try {
@@ -11,11 +11,11 @@ if(isNaN(args[0])) return message.channel.send(new Discord.RichEmbed()
 .setColor([255, 0, 0])
 .setTitle('Error')
 .setDescription('You need to provide a number.(2, 3, 4...)'));
-if(args[0] > '100') return message.channel.send(new Discord.RichEmbed()
+if(args[0] < '100') return message.channel.send(new Discord.RichEmbed()
 .setColor([255, 0, 0])
 .setTitle('Error')
-.setDescription('Please provode a number between 2 and 100.'));
-if(args[0] == '1') return message.channel.send(new Discord.RichEmbed()
+.setDescription('Please provde a number between 2 and 100.'));
+if(args[0] < '1') return message.channel.send(new Discord.RichEmbed()
 .setColor([255, 0, 0])
 .setTitle('Error')
 .setDescription('Please provode a number between 2 and 100.'));

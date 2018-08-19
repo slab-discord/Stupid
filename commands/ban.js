@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const settings = require('./settings.json');
+const settings = require('./jsons/settings.json');
 
 exports.run = (bot, message, args, tools) => {
 if(!message.member.hasPermission('BAN_MEMBERS') || !message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.RichEmbed()

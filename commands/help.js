@@ -1,12 +1,13 @@
 const Discord = require('discord.js');
-const settings = require('./settings.json')
+const settings = require('./jsons/settings.json')
 
 exports.run = (bot, message, args, tools) => {
 let help = new Discord.RichEmbed()
-.setTitle('Command List')
+.setTitle('Help Page')
 .setColor('#FFA500')
-.setDescription('__Want more commands? do ;request <command and what it does>__ \n\n**Util**\n**;serverinfo** - Info about the server\n**;userinfo** - Info about you or another user\n**;botinfo** - Info about me\n**;purge** - Purge a number of messages between 2-100\n**;kick** - make me kick a user\n**;ban** - Make me ban a user \n\n**Fun**\n**;say** - Make me say stuff\n**;gay** - <mention> or make me call a random person gay\n**;retarded** - Make me call a random person retarded\n**;cat** - Random cat picture\n**;8ball** - Magic 8 ball\n**;yomama** - Yo mama joke\n**;shortenurl** - Shorten a url!')
-.setFooter('Requested by ' + message.author.tag);
-message.channel.send({embed: help});
+.setDescription('**Util Commands**\n\n**;serverinfo** - Shows info about the server.\n**;userinfo** - Shows info about you or another person\n**;botinfo** - Info about me\n**;kick** - Kick a user\n\n**Role commands**\n\n**;role** - Custom roles. Role name must start with • and be below the bots role\n**;color** - Colored roles. Role name must start with # and be below the the bots role\n\n**Fun Commands**\n\n**;cat** - Random cat\n**;gay** - Call someone gay\n**;retarded** - Call someone retarded\n**;say** - Make me say stuff\n**;yomama** - Yo mama joke\n**;8ball** - Magic 8 ball')
+.setFooter('The help command is being redone and all commands may not be shown.');
+message.author.send({embed: help});
+message.channel.send('📬 Dms.');
 return;
 }

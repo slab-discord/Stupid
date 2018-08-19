@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
-const settings = require('./settings.json')
-const stuff = require('./stuff.json')
+const settings = require('./jsons/settings.json')
+const stuff = require('./jsons/stuff.json')
 
 exports.run = (bot, message, args, tools) => {
 let jokes = stuff.yomama;
