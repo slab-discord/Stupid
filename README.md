@@ -1,4 +1,4 @@
-# Picklebot
+# Stupid
 <a href="https://discordbots.org/bot/405635474124832768">
   <img src="https://discordbots.org/api/widget/upvotes/405635474124832768.svg" />
 </a>
@@ -9,4 +9,3 @@
 </a>
 
 [Invite Me](https://discordapp.com/api/oauth2/authorize?client_id=405635474124832768&permissions=8&scope=bot) 
-<br />[Join the server](https://discord.gg/dmCEYsp)
