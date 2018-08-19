@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const settings = require('./commands/jsons/settings.json');
 const snek = require("snekfetch");
 const fs = require('fs')
 const bot = new Discord.Client();
