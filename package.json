@@ -11,10 +11,10 @@
     "url": "git+https://github.com/tsunamiiii/Stupid/"
   },
   "dependencies": {
-    "discord.js": "^11.2.1",
+    "discord.js": "^11.3.2",
     "discord.js-commando": "^0.9.0",
-    "querystring": "0.2.0",
-    "https": "0.4.5"
+    "fs": "0.0.1-security",
+    "snekfetch": "^4.0.0"
   }
 }
 
