@@ -4,7 +4,7 @@ const fs = require('fs')
 const bot = new Discord.Client();
 const pfix = 'SB;';
 bot.on("ready", () => {
-console.log('[Stupid] Stupidbot running on version ' + settings.version);
+console.log('[Stupid] Stupidbot running on version 1.0.0');
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
 });
 bot.on("guildCreate", guild => { 
