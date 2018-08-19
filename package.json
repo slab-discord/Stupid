@@ -1,0 +1,19 @@
+{
+  "name": "stupid",
+  "version": "1.0.0",
+  "description": "A Discord bot",
+  "main": "pbot.js",
+  "scripts": {
+    "start": "node pbot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsunamiiii/Stupid/"
+  },
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "discord.js-commando": "^0.9.0",
+    "querystring": "0.2.0",
+    "https": "0.4.5"
+  }
+
