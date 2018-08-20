@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-module.exports.run = async (bot, message, args, tools) => {
+exports.run = async (bot, message, args, tools) => {
 const m = await message.channel.send("Ping");
 
 let E = new Discord.RichEmbed()
