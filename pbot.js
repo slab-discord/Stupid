@@ -38,7 +38,8 @@ let err = new Discord.RichEmbed()
 message.channel.send({embed: err});
 console.log(e.message);
 bot.channels.get('481323063938383872').send(new Discord.RichEmbed()
-.setTitle('**Error**')
+.setAuthor('**Error**')
+.setTitle(`Server: ${message.guild.name}`)                                    
 .setDescription(e.message)
 .setColor([255, 0, 0]));                                           
 }
