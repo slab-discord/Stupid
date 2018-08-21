@@ -37,6 +37,10 @@ let err = new Discord.RichEmbed()
 .setColor([255, 0, 0]);
 message.channel.send({embed: err});
 console.log(e.message);
+bot.channels.get('481323063938383872').send(new Discord.RichEmbed()
+.setTitle('**Error**')
+.setDescription(e.message)
+.setColor([255, 0, 0]));                                           
 }
 });
 
