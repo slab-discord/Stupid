@@ -9,11 +9,11 @@ bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"}
 });
 bot.on("guildCreate", guild => { 
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
-console.log("Joined a new guild: " + guild.name);
+bot.channels.get('481594755638231051').send("Joined a new guild: " + guild.name);
 });
 bot.on("guildDelete", guild => { 
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
-console.log("Left a guild: " + guild.name);
+bot.channels.get('481594755638231051').send("Left a guild: " + guild.name);
 });
 //*/
 bot.on('message', message => {
