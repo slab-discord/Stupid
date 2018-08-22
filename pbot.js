@@ -10,11 +10,17 @@ bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"}
 });
 bot.on("guildCreate", guild => { 
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
-bot.channels.get('481594755638231051').send("Joined a new guild: " + guild.name);
+bot.channels.get('481594755638231051').send(new Discord.RichEmbed()
+.setTitle(`New Server: ${guild.name}`)
+.setDescription(`Now in ${bot.guilds.size} servers`)
+.setColor('RANDOM'));
 });
 bot.on("guildDelete", guild => { 
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
-bot.channels.get('481594755638231051').send("Left a guild: " + guild.name);
+bot.channels.get('481594755638231051').send(new Discord.RichEmbed()
+.setTitle(`Left a Server: ${guild.name}`)
+.setDescription(`Now in ${bot.guilds.size} servers`)
+.setColor('RANDOM'));
 });
 //*/
 bot.on('message', message => {
