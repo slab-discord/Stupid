@@ -1,13 +1,18 @@
-const Discord = require("discord.js");
+const Discord = require('discord.js')
 
-exports.run = async (bot, message, args, tools) => {
-const m = await message.channel.send("Ping");
+exports.run = async (client, message, args, color) => {
 
-let E = new Discord.RichEmbed()
-.setTitle("Pong! :stopwatch:")
-.addField("Latency", `${m.createdTimestamp - message.createdTimestamp}ms`)
-.addField("API Latency", `${Math.round(bot.ping)}ms`)
+    let start = Date.now(); message.channel.send(message.channel.id, 'Pinging...').then(message => { 
+    let diff = (Date.now() - start); 
+    let API = (client.ping).toFixed(2)
+        
+        let embed = new Discord.RichEmbed()
+        .setTitle(`🔔 Pong!`)
+        .setColor(0xff2f2f)
+        .addField("📶 Latency", `${diff}ms`, true)
+        .addField("💻 API", `${API}ms`, true)
+        message.edit(embed);
+      
+    });
 
-message.channel.send(E).then(m.delete());
-
-  }
+}
