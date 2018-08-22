@@ -8,6 +8,6 @@ let E = new Discord.RichEmbed()
 .addField("Latency", `${m.createdTimestamp - message.createdTimestamp}ms`)
 .addField("API Latency", `${Math.round(bot.ping)}ms`)
 
-message.channel.send(E)
+message.channel.send(E).then(m.delete());
 
   }
