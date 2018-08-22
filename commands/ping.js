@@ -1,10 +1,10 @@
 const Discord = require('discord.js')
 
-exports.run = async (client, message, args, color) => {
+exports.run = async (bot, message, args, tools) => {
 
-    let start = Date.now(); message.channel.send(message.channel.id, 'Pinging...').then(message => { 
+    let start = Date.now(); message.channel.send('Pinging...').then(message => { 
     let diff = (Date.now() - start); 
-    let API = (client.ping).toFixed(2)
+    let API = (bot.ping).toFixed(2)
         
         let embed = new Discord.RichEmbed()
         .setTitle(`🔔 Pong!`)
