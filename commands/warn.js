@@ -30,7 +30,7 @@ let warnd = new Discord.RichEmbed()
 message.channel.send({embed: warnd});
 let warnd2 = new Discord.RichEmbed()
 .setTitle('✅ Warned')
-.setDescription('<@' + wrnd.id + '> was warned bye <@' + message.author.id + '> for' + args.join(' ').slice(21))
+.setDescription('<@' + wrnd.id + '> was warned by <@' + message.author.id + '> for' + args.join(' ').slice(21))
 .setColor('#008000');
 wrnChan.send({embed: warnd2});
 }
