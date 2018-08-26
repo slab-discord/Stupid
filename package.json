@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "discord.js": "^11.3.2",
+    "fs": "0.0.1-security",
+    "https": "1.0.0",
     "moment": "^2.22.1",
     "moment-duration-format": "^2.2.2",
-    "fs": "0.0.1-security",
+    "querystring": "0.2.0",
     "snekfetch": "^4.0.0"
   }
 }
