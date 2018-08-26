@@ -37,8 +37,12 @@ let commandFile = require(`./commands/${cmd}.js`);
 */
 commandFile.run(bot, message, args);
 } catch(e) {
-if(message.guild.id == '264445053596991498') return console.log(e.message); //If dbl ever unmutes my bot so it wont get muted again
-let err = new Discord.RichEmbed()
+if(message.guild.id == '264445053596991498') return bot.channels.get('481323063938383872').send(new Discord.RichEmbed()
+.setTitle(`Server: ${message.guild.name}`)
+.setAuthor(message.author.tag)                                    
+.setDescription(e.message)
+.setColor([255, 0, 0])); 
+ let err = new Discord.RichEmbed()
 .setTitle('Error')
 .setDescription('```' + e.message + '```')
 .setColor([255, 0, 0]);
