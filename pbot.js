@@ -22,7 +22,7 @@ bot.channels.get('481594755638231051').send(new Discord.RichEmbed()
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
 });
-//*/
+
 bot.on('message', message => {
 let msg = message.content.toUpperCase();
 let user = message.author; //ive never used this rip
@@ -33,8 +33,6 @@ if(user.bot) return;
 
 try{
 let commandFile = require(`./commands/${cmd}.js`);
-/*if(message.author.id != settings.myid) return message.channel.send('Working on the bot rn tbh');
-*/
 commandFile.run(bot, message, args);
 } catch(e) {
 if(message.guild.id == '264445053596991498') return bot.channels.get('481323063938383872').send(new Discord.RichEmbed()
