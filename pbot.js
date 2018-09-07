@@ -25,7 +25,7 @@ const update = () => {
 };
 bot.on("ready", () => {
 console.log('[Stupid] Stupidbot running on version 1.0.0');
-bot.channels.get('487443729049714688').send('Stupid was restarted, back up now');
+bot.channels.get('487443729049714688').send('Stupid was restarted, back up now'); //work damn you
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
 });
 bot.on("guildCreate", guild => { 
