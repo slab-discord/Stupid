@@ -5,6 +5,9 @@ const bot = new Discord.Client();
 const pfix = 'SB;';
 const { stringify } = require('querystring');
 const { request } = require('https');
+const reschan = bot.channels.get('487443729049714688');
+const jolechan = bot.channels.get('487443783538049026');
+const errchan = bot.channels.get('487443686662340608');
 
 const update = () => {
    const data = stringify({ server_count: bot.guilds.size });
@@ -25,19 +28,19 @@ const update = () => {
 };
 bot.on("ready", () => {
 console.log('[Stupid] Stupidbot running on version 1.0.0');
-bot.channels.get('487443729049714688').send('Stupid was restarted, back up now'); //work damn you
+reschan.send('Stupid was restarted, back up now'); //work damn you
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
 });
 bot.on("guildCreate", guild => { 
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
-bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
+jolechan.send(new Discord.RichEmbed()
 .setTitle(`New Server: ${guild.name}`)
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
 });
 bot.on("guildDelete", guild => { 
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
-bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
+jolechan.send(new Discord.RichEmbed()
 .setTitle(`Left a Server: ${guild.name}`)
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
@@ -57,7 +60,7 @@ try{
 let commandFile = require(`./commands/${cmd}.js`);
 commandFile.run(bot, message, args);
 } catch(e) {
-if(message.guild.id == '264445053596991498') return bot.channels.get('487443686662340608').send(new Discord.RichEmbed()
+if(message.guild.id == '264445053596991498') return errchan.send(new Discord.RichEmbed()
 .setTitle(`Server: ${message.guild.name}`)
 .setAuthor(message.author.tag)                                    
 .setDescription(e.message)
@@ -67,7 +70,7 @@ if(message.guild.id == '264445053596991498') return bot.channels.get('4874436866
 .setDescription('```' + e.message + '```')
 .setColor([255, 0, 0]);
 message.channel.send({embed: err});
-bot.channels.get('487443686662340608').send(new Discord.RichEmbed()
+errchan.send(new Discord.RichEmbed()
 .setTitle(`Server: ${message.guild.name}`)
 .setAuthor(message.author.tag)                                    
 .setDescription(e.message)
