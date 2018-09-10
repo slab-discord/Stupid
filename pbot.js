@@ -20,7 +20,7 @@ const update = () => {
    });
    req.write(data);
    req.end();
-   bot.channels.get('481594755638231051').send(new Discord.RichEmbed()
+   bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
 .setDescription(`Updated DBL Server Count: ${bot.guilds.size}`));
 };
 bot.on("ready", () => {
