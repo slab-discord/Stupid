@@ -31,6 +31,7 @@ bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"}
 bot.on("guildCreate", guild => { 
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
 bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
+.setAuthor(`Owner: ${guild.owner.user.tag}`)                                    
 .setTitle(`New Server: ${guild.name}`)
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
