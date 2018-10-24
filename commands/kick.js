@@ -2,7 +2,7 @@ const discord = require('discord.js');
 const settings = require('./jsons/settings.json');
 
 exports.run = (bot, message, args, tools) => {
-if(message.member.hasPermissions('BAN_MEMBERS') || message.member.hasPermissions('ADMINISTRATOR')) {
+if(message.member.hasPermissions('KICK_MEMBERS') || message.member.hasPermissions('ADMINISTRATOR')) {
 
 if(message.mentions.members.first()) {
 if(message.member.user.id == message.mentions.members.first().id) {
@@ -49,7 +49,7 @@ message.channel.send(new discord.RichEmbed()
 message.channel.send(new discord.RichEmbed()
 .setAuthor(message.member.user.username, message.member.user.displayAvatarURL)
 .setTitle('Error')
-.setDescription('You dont have permission to kick people.')
+.setDescription('You dont have permission to kick people (`Kick Members`).')
 .setColor([255, 0, 0]));
 }
 }
