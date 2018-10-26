@@ -12,7 +12,7 @@ let getbanned = message.mentions.users.first();
   if(getbanned.id === bot.user.id) return message.channel.send('Im not bannable.');
   if(getbanned.id === message.author.id) return message.channel.send('You can\'t ban yourself');
 let hammerhasspoken = message.mentions.members.first();
-  if(!getbanned.banable) return message.channel.send(new Discord.RichEmbed()
+  if(!getbanned.bannable) return message.channel.send(new Discord.RichEmbed()
                                                   .setTitle('Admin/Higher Role')
                                                   .setDescription(`${getbanned.tag} isn't bannable because they are either admin or above my role.`)
                                                   .setColor([255, 0, 0]));
