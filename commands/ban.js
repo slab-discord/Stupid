@@ -9,8 +9,8 @@ if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send(new
 
 let getbanned = message.mentions.users.first();
   if(!getbanned) return message.channel.send('Please mention someone to ban.');
-  if(getbanned.id === bot.user.id) return message.channel.send('Im not bannable.');
-  if(getbanned.id === message.author.id) return message.channel.send('You can\'t ban yourself');
+  if(getbanned.id == bot.user.id) return message.channel.send('Im not bannable.');
+  if(getbanned.id == message.author.id) return message.channel.send('You can\'t ban yourself');
 let hammerhasspoken = message.mentions.members.first();
   if(!getbanned.bannable) return message.channel.send(new Discord.RichEmbed()
                                                   .setTitle('Admin/Higher Role')
