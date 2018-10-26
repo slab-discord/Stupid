@@ -2,26 +2,22 @@ const Discord = require('discord.js');
 const settings = require('./jsons/settings.json');
 
 exports.run = (bot, message, args, tools) => {
-if(!message.member.hasPermission('BAN_MEMBERS') || !message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(new Discord.RichEmbed()
-.setTitle('No perms')
-.setDescription('You do not have permission to ban.')
-.setColor([255, 0, 0]));
-let buser = message.mentions.users.first();
-if(!buser) return message.channel.send(new Discord.RichEmbed()
-.setTitle('No user.')
-.setDescription('Please ping a user to ban')
-.setColor([255, 0, 0]));
-if(buser.banable) {
-message.mentions.members.first().ban().then((member) => {
-message.channel.send(new Discord.RichEmbed()
-.setTitle('Banned')
-.setDescription(member.user.tag + ' was banned')
-.setColor([255, 0, 0]));
-});
-} else {
-message.channel.send(new Discord.RichEmbed()
-.setTitle('Cant be banned')
-.setDescription(buser.tag + ' cannot be banned')
-.setColor([255, 0, 0]));
-}
+if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send(new Discord.RichEmbed()
+                                                                            .setTitle('No Permission')
+                                                                            .setDescription('You don\'t have permission to ban people. (`Ban Members`)')
+                                                                            .setColor([255, 0, 0]));
+let getbanned = message.mentions.users.first();
+let hammerhasspoken = message.mentions.members.first();
+  if(!getbanned.banable) return message.channel.send(new Discord.RichEmbed()
+                                                  .setTitle('Admin/Higher Role')
+                                                  .setDescription(`${getbanned.tag} isn't bannable because they are either admin or above my role.`)
+                                                  .setColor([255, 0, 0]));
+    try {  
+  hammerhasspoken.ban().then(message.channel.send(new Discord.RichEmded()
+                                                    .setTitle('Banned')
+                                                    .setDiscription(`${hammerhasspoken.user.tag} has been banned.`)
+                                                    .setColor('#FFA500')));
+    } catch (e) {
+      message.channel.send(e.message);
+    }
 }
