@@ -32,7 +32,8 @@ message.channel.send(new discord.RichEmbed()
 
 function clean(text) {
 if (typeof(text) === 'string')
-return text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203)).replace(client.token, 'MCA3NjM0NDc9MTIr3ktyNzY6.UDnaRg.uqLifnope7FFSf_xQqNdiB6T3A');
+return text.replace(/`/g, '`' + String.fromCharCode(8203)).replace(/@/g, '@' + String.fromCharCode(8203))
+           .replace(bot.token, 'MCA3NjM0NDc9MTIr3ktyNzY6.UDnaRg.uqLifnope7FFSf_xQqNdiB6T3A');
 else
 return text;
 }
