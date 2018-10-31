@@ -8,7 +8,7 @@ if(args.join(" ") == "_ _") return message.channel.send('Direct Request not sent
 bot.users.get('363474941523263518').send(message.author.username + ' (' + message.author.id + ') requested ' + args.join(" ") + ' in ' + message.guild.name);
 let rq = new Discord.RichEmbed()
 .setTitle('Direct Request Sent')
-.setDescription('\n**Requested:**\n\n```' + args.join(" ") + '\n```');
+.setDescription('\n**Requested:**\n\n' + args.join(" ") + '\n');
 message.channel.send({embed: rq});
 return;
 }
