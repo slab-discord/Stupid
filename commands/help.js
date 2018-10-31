@@ -10,7 +10,11 @@ exports.run = (bot, message, args, tools) => {
   message.channel.send({embed: help});
   if(!settings.ids.includes(message.author.id)) return;
   message.channel.send(new Discord.RichEmbed()
-    .setDescription('**Bot Admin Commands**\n\n**;eval** - Eval some code to test')
+    .setDescription('**Bot Admin Commands**\n\n**sb;eval** - Eval some code to test.')
+    .setColor('#FFA500'));
+  if(message.author.id !== settings.myid) return;
+  message.channel.send(new Discord.RichEmbed()
+    .setDescription('**Bot Owner Commands**\n\n**sb;rename** - Rename the bot.')
     .setColor('#FFA500'));
 
 }
