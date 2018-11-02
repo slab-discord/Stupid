@@ -8,10 +8,10 @@ if(args.join(" ") == '_ _') return;
 let rchan = bot.channels.get('490293516426280971');
 rchan.send(new Discord.RichEmbed()
 .setTitle('New Request')
-.setDescription(message.author.tag + ' requested:**\n\n```' + args.join(" ") + '\n```'));
+.setDescription(message.author.tag + ' requested: ' + args.join(" ")));
 message.channel.send(new Discord.RichEmbed()
 .setTitle('Requested')
-.setDescription('Requested:**\n\n```' + args.join(" ") + '\n```'));
+.setDescription('Requested: ' + args.join(" ")));
 
 
 
