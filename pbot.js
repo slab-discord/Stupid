@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const snek = require("snekfetch");
-const fs = require('fs')
+const fs = require('fs');
+const settings = require('./commands/jsons/settings.json');
 const bot = new Discord.Client();
 const pfix = 'SB;';
 const { stringify } = require('querystring');
