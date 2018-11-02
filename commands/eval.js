@@ -27,7 +27,7 @@ message.channel.send({embed: amevaled});
 message.channel.send(new discord.RichEmbed()
 .setTitle('Error')
 .setColor([255, 0, 0])
-.setDescription('\n```' + clean(err) + '```'));
+.setDescription(clean(err)));
 }
 
 function clean(text) {
