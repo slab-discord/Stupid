@@ -7,11 +7,10 @@ const pfix = 'SB;';
 const { stringify } = require('querystring');
 const { request } = require('https');
 const update = request({
-         url: "http://discordbots.tk/api/post_gc.php?auth=f91fe5-445bbd-a6b0c9-abf4ef-28ff20&gc=" + bot.guilds.size,
+         url: "http://discordbots.tk/api/post_gc.php?auth=" + process.env.dbtoken + "&gc=" + bot.guilds.size,
          json: true
-}, function (error, response, body) {
-     console.log("Updated server count on Discord Bots to " + bot.guilds.size)
-}); //got banned from dbl so went to alternative xd
+}
+                      ); //got banned from dbl so went to alternative xd
 
 bot.on("ready", () => {
 console.log('[Stupid] Stupidbot running on version 1.0.0');
