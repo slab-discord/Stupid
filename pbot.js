@@ -31,8 +31,6 @@ bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
 .setColor('RANDOM'));
 DisBotsClient.postServerCount(bot.guilds.size);
 });
-bot.on("guildCreate", update);
-bot.on("guildDelete", update);
 
 bot.on('message', message => {
 if(settings.gbl.includes(message.guild.id)) return;
