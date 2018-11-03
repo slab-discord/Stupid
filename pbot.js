@@ -6,6 +6,12 @@ const bot = new Discord.Client();
 const pfix = 'SB;';
 const { stringify } = require('querystring');
 const { request } = require('https');
+const update = request({
+         url: "http://discordbots.tk/api/post_gc.php?auth=f91fe5-445bbd-a6b0c9-abf4ef-28ff20&gc=" + bot.guilds.size,
+         json: true
+}, function (error, response, body) {
+     console.log("Updated server count on Discord Bots to " + bot.guilds.size)
+}); //got banned from dbl so went to alternative xd
 
 bot.on("ready", () => {
 console.log('[Stupid] Stupidbot running on version 1.0.0');
@@ -27,6 +33,8 @@ bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
 });
+bot.on("guildCreate", update);
+bot.on("guildDelete", update);
 
 bot.on('message', message => {
 if(settings.gbl.includes(message.guild.id)) return;
