@@ -7,23 +7,6 @@ const pfix = 'SB;';
 const { stringify } = require('querystring');
 const { request } = require('https');
 
-const update = () => {
-   const data = stringify({ server_count: bot.guilds.size });
-   const req = request({
-        host: 'discordbots.org',
-        path: `/api/bots/${bot.user.id}/stats`,
-        method: 'POST',
-        headers: {
-               'Authorization': process.env.dbltok,
-               'Content-Type': 'application/x-www-form-urlencoded',
-               'Content-Length': Buffer.byteLength(data)
-        }
-   });
-   req.write(data);
-   req.end();
-   bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
-.setDescription(`Updated DBL Server Count: ${bot.guilds.size}`));
-};
 bot.on("ready", () => {
 console.log('[Stupid] Stupidbot running on version 1.0.0');
 bot.channels.get('487443729049714688').send('Stupid was restarted, back up now'); //work damn you
@@ -44,8 +27,6 @@ bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
 });
-bot.on("guildCreate", update);
-bot.on("guildDelete", update);
 
 bot.on('message', message => {
 if(settings.gbl.includes(message.guild.id)) return;
