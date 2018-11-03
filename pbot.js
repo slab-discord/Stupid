@@ -6,10 +6,9 @@ const bot = new Discord.Client();
 const pfix = 'SB;';
 const { stringify } = require('querystring');
 const { request } = require('https');
-const update = request({
-         url: "http://discordbots.tk/api/post_gc.php?auth=" + process.env.dbtoken + "&gc=" + bot.guilds.size,
-         json: true
-}); //got banned from dbl so went to alternative xd
+const DisBots = require('discordbots.tk');
+const DisBotsClient = new DisBots(process.env.token);
+const update = DisBotsClient.postServerCount(bot.guilds.size);//got banned from dbl so went to alternative xd
 
 bot.on("ready", () => {
 console.log('[Stupid] Stupidbot running on version 1.0.0');
