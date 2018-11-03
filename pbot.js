@@ -7,7 +7,7 @@ const pfix = 'SB;';
 const { stringify } = require('querystring');
 const { request } = require('https');
 const DisBots = require('discordbots.tk');
-const DisBotsClient = new DisBots(process.env.token);
+const DisBotsClient = new DisBots(process.env.dbtoken);
 const update = DisBotsClient.postServerCount(bot.guilds.size);//got banned from dbl so went to alternative xd
 
 bot.on("ready", () => {
