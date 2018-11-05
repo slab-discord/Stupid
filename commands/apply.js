@@ -20,6 +20,7 @@ bot.channels.get('480300841123708939').send('Author ID: ' + messsage.author.id);
 
 } catch(e) {
 message.channel.send('Please provide your bots prefix.');
+bot.channels.get('480300841123708939').send(e.message);
 }
 
 }
