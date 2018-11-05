@@ -16,7 +16,7 @@ message.channel.send(new Discord.RichEmbed()
 bot.channels.get('508201552729866246').send(`<@${args.join(" ").slice(0, 18)}> has been applied by ${message.author}`); 
 bot.channels.get('480300841123708939').send(`<https:\/\/discordapp.com/oauth2/authorize?client_id=${args.join(" ").slice(0, 18)}&permissions=8&scope=bot> @everyone`);
 bot.channels.get('480300841123708939').send('Bot ID: ' + args.join(" ").slice(0, 18));
-bot.channels.get('480300841123708939').send('Author ID: ' + messsage.author.id);
+bot.channels.get('480300841123708939').send('Author ID: ' + message.author.id);
 
 } catch(e) {
 message.channel.send('Please provide your bots prefix.');
