@@ -4,6 +4,7 @@ const settings = require('./jsons/settings.json');
 exports.run = (bot,  message, args, tools) => {
 if(message.guild.id !== '480301269529919488') return;
 if(message.channel.name !== 'apply') return message.channel.send('Please only apply in #apply.');
+if(!args.join(" ").slice(0, 18)) return message.channel.send('Please provide your bots ID.');
 if(isNaN(args.join(" ").slice(0, 18))) return message.channel.send('Please provide your bots ID.');
 
 try{
