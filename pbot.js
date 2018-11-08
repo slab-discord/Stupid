@@ -66,6 +66,6 @@ bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
                           .setTitle('Updated server counts')
                           .setDescription('Updated the server counts to ' + bot.guilds.size + ' servers.'));
 }
-setInterval(post, 8.64e+7) // there dbaots i set interval
+setInterval(post, 10800000) // there dbaots i set interval
 
 bot.login(process.env.token)
