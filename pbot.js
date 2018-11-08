@@ -8,6 +8,8 @@ const { stringify } = require('querystring');
 const { request } = require('https');
 const DisBots = require('discordbots.tk');
 const DisBotsClient = new DisBots(process.env.dbtoken);
+const DiscordBoats = require('dboats-api');
+const boats = new DiscordBoats({token: process.env.dbatoken});
 
 bot.on("ready", () => {
 console.log('[Stupid] Stupidbot running on version 1.0.0');
@@ -22,6 +24,7 @@ bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
 DisBotsClient.postServerCount(bot.guilds.size);
+boats.postGuilds(bot.guilds.size);
 });
 bot.on("guildDelete", guild => { 
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
@@ -30,6 +33,7 @@ bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
 DisBotsClient.postServerCount(bot.guilds.size);
+boats.postGuilds(bot.guilds.size);
 });
 
 bot.on('message', message => {
