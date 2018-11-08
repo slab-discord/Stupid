@@ -62,6 +62,9 @@ message.channel.send({embed: err});
 function post() {
 DisBotsClient.postServerCount(bot.guilds.size);
 boats.postGuilds(bot.guilds.size);
+bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
+                          .setTitle('Updated server counts')
+                          .setDescription('Updated the server counts to ' + bot.guilds.size + ' servers.'));
 }
 setInterval(post, 600000) // there dbaots i set interval
 
