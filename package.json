@@ -11,6 +11,7 @@
     "url": "git+https://github.com/tsunamiiii/Stupid/"
   },
   "dependencies": {
+    "dboats-api": "1.0.1", 
     "discord.js": "^11.3.2",
     "discordbots.tk": "^1.0.9",
     "fs": "0.0.1-security",
