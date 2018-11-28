@@ -23,6 +23,7 @@ bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
 .setTitle(`New Server: ${guild.name} | ${guild.id}`)
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
+post();
 });
 bot.on("guildDelete", guild => { 
 bot.user.setActivity(`${bot.guilds.size} servers | sb;help`, {type: "LISTENING"});
@@ -30,6 +31,7 @@ bot.channels.get('487443783538049026').send(new Discord.RichEmbed()
 .setTitle(`Left a Server: ${guild.name} | ${guild.id}`)
 .setDescription(`Now in ${bot.guilds.size} servers`)
 .setColor('RANDOM'));
+post();
 });
 
 bot.on('message', message => {
@@ -66,6 +68,5 @@ bot.channels.get('516020084561674259').send(new Discord.RichEmbed()
                           .setTitle('Updated server counts')
                           .setDescription('Updated the server counts to ' + bot.guilds.size + ' servers.'));
 }
-setInterval(post, 10800000) // there dbaots i set interval
 
 bot.login(process.env.token)
