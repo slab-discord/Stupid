@@ -4,7 +4,7 @@ const settings = require('./jsons/settings.json');
 exports.run = (bot, message, args, tools) => {
 let user = message.author;
 let puser = message.mentions.users.first();
-let puser2 = message.guild.member(message.mentions.users.first());
+let puser2 = message.guild.member(puser);
 if(!puser) {
 let uinfo = new Discord.RichEmbed()
 .setAuthor(user.tag, user.displayAvatarURL)
