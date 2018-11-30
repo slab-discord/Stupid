@@ -22,7 +22,7 @@ try{
   message.guild.member(victim).kick().then(message.channel.send(new Discord.RichEmbed()
                                           .setTitle('Kicked')
                                           .setDescription(`${victim.tag} has been kicked.`)
-                                          .setColor('#FFA500'));
+                                          .setColor('#FFA500')));
 } catch (e) {
  message.channel.send(e.message);
 }
