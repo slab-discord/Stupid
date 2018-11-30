@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "dboats-api": "1.0.1", 
-    "discord.js": "^11.3.2",
+    "discord.js": "^11.4.2",
     "discordbots.tk": "^1.0.9",
     "fs": "0.0.1-security",
     "https": "1.0.0",
