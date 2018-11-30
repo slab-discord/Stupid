@@ -1,55 +1,32 @@
-const discord = require('discord.js');
-const settings = require('./jsons/settings.json');
+const Discord = require('discord.js');
+const settings = require('/.jsons/settings,json');
 
 exports.run = (bot, message, args, tools) => {
-if(message.member.hasPermissions('KICK_MEMBERS') || message.member.hasPermissions('ADMINISTRATOR')) {
-
-if(message.mentions.members.first()) {
-if(message.member.user.id == message.mentions.members.first().id) {
-
-message.channel.send(new discord.RichEmbed()
-.setColor([255, 0, 0])
-.setDescription('Why do you want to kick yourself?!?')
-.setTitle('Really? Yourself?'));
-
-} else {
-
-if(message.mentions.members.first().id == bot.user.id) {
-message.channel.send(new discord.RichEmbed()
-.setColor([255, 0, 0])
-.setDescription('Why do you wanna kick me ;-;')
-.setTitle('NANI?!?'));
-
-} else {
-
-if(message.mentions.members.first().kickable) {
-message.mentions.members.first().kick().then((member) => {
-
-message.channel.send(new discord.RichEmbed()
-
-.setColor([255, 0, 0])
-.setTitle('Kicked')
-.setDescription('Kicked ' + member.user.tag + ' successfully'));
-
-                            });
-} else {
-message.channel.send(new discord.RichEmbed()
-.setColor([255, 0, 0])
-.setTitle('Error')
-.setDescription('I don\'t seem to have perms to kick...'));
+  if(!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send(new Discord.RichEmbed()
+                                                                                .setTitle('No permission')
+                                                                                .setDescription('You don\'t have permission to kick members.')
+                                                                                .setColor([255, 0, 0]));
+  let kicker = message.author;
+  let victim = message.mentions.users.first();
+   if(kicker.id == victim.id) return;
+   if(bot.user.id == victim.id) return;
+   if(!victim) return message.channel.send(new Discord.RichEmbed()
+                                          .setTitle('Ping someone')
+                                          .setDescription('I can\'t kick air. Ping someone.')
+                                          .setColor([255, 0, 0]));
+   if(!message.guild.member(victim).kickable) return message.channel.send(new Discord.RichEmbed()
+                                          .setTitle('Unkickable')
+                                          .setDescription(`${victim.tag} is unkickable. Check if my role is higher then them or if i have permission.`)
+                                          .setColor([255, 0, 0]));
+try{
+  message.guild.member(victim).kick().then(message.channel.send(new Discord.RichEmbed()
+                                          .setTitle('Kicked')
+                                          .setDescription(`${victim.tag} has been kicked.`)
+                                          .setColor('#FFA500'));
+} catch (e) {
+ message.channel.send(e.message);
 }
-}
-}
-} else {
-message.channel.send(new discord.RichEmbed()
-.setColor([255, 0, 0])
-.setDescription('Please specify a user!'));
-}
-} else {
-message.channel.send(new discord.RichEmbed()
-.setAuthor(message.member.user.username, message.member.user.displayAvatarURL)
-.setTitle('Error')
-.setDescription('You dont have permission to kick people (`Kick Members`).')
-.setColor([255, 0, 0]));
-}
+             
+                                                
+                                                                                           
 }
