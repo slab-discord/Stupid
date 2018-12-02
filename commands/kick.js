@@ -19,10 +19,12 @@ exports.run = (bot, message, args, tools) => {
                                           .setDescription(`${victim.tag} is unkickable. Check if my role is higher then them or if i have permission.`)
                                           .setColor([255, 0, 0]));
 try{
-  message.guild.member(victim).kick().then(message.channel.send(new Discord.RichEmbed()
+  message.guild.member(victim).kick();
+  message.channel.send(new Discord.RichEmbed()
                                           .setTitle('Kicked')
                                           .setDescription(`${victim.tag} has been kicked.`)
-                                          .setColor('#FFA500')));
+                                          .setColor('#FFA500'));
+
 } catch (e) {
  message.channel.send(e.message);
 }
