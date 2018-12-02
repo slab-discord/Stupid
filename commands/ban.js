@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const settings = require('./settings.json');
 
 exports.run = (bot, message, args, tools) => {
-if(message.member.hasPermission('BAN_MEMBERS')) return message.channel.send(new Discord.RichEmbed()
+if(!message.member.hasPermission('BAN_MEMBERS')) return message.channel.send(new Discord.RichEmbed()
 .setTitle('No Permission')
 .setDescription('You do not have permission to ban members.')
 .setColor([255, 0, 0]));
